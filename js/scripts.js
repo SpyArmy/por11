@@ -36,3 +36,4 @@ function hiliteNav(x) {
 myListOfItems.forEach(item => {
     myObserver.observe(item)
 });
+

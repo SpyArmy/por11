@@ -5,6 +5,10 @@ header, nav, main {
 
 /* NAVIGATION STUFF GOES HERE  */
 
+@for $i from 1 through 12 {
+    $w: calc($i /12) * 100%;
+    .large-#{$i} {flex-basis: $w;}
+}
 
 body {
     display: grid;
@@ -21,14 +25,10 @@ nav ul {
     height: 100vh;
     justify-content: center;
     position: fixed;
-    width: 13.2%;
+    width: 13.2%;;
     li {
         flex: none;
     }
-}
-
-#six {
-    height: 95vh;
 }
 
 form {
@@ -50,27 +50,49 @@ form {
 }
 
 
-#one h1 {
+#one {
+    height: 100vh;
+    h1 {
     padding: 15rem $gutter.5rem $gutter;
 
+    }
 }
-#two h1 {
-    padding: 15rem $gutter.5rem $gutter;
-
+#three {
+    height: 100vh;
+    h1 {
+        padding: 15rem $gutter.5rem $gutter;
+    
+    }
 }
-#three h1 {
-    padding: 15rem $gutter.5rem $gutter;
 
+#four {
+    height: 100vh;
+    h1 {
+        padding: 15rem $gutter.5rem $gutter;
+    
+    }
 }
-#four h1 {
-    padding: 15rem $gutter.5rem $gutter;
-
-}
-#five h1 {
-    padding: 15rem $gutter.5rem $gutter;
-
+#five {
+    height: 100vh;
+    h1 {
+        padding: 15rem $gutter.5rem $gutter;
+    
+    }
 }
 #six h1 {
     padding: 15rem $gutter.5rem $gutter;
 
+}
+
+nav {
+    ul {
+        a {
+            img{
+                display: none;
+            }
+            span {
+                display: block;
+            }
+        }
+    }
 }

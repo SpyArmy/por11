@@ -2,6 +2,7 @@
 html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 /*  Apply a natural box layout model to all elements  */
@@ -9,7 +10,9 @@ html {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-} // end all elements
+}
+
+// end all elements
 
 
 /* --------------------------- BODY --------------------------- */
@@ -21,25 +24,41 @@ body {
 
 
 /* --------------------------- HEADER --------------------------- */
-#headerWrapper {border-bottom: 1px solid $greyColor;}
+#headerWrapper {
+    border-bottom: 1px solid $greyColor;
+}
+
 header {
     display: grid;
-    grid-template-columns: 50px auto;
+    grid-template-columns: 50px auto 44px;
     column-gap: $gutter;
     align-items: center; //vertically
     padding: .5rem $gutter;
+
     span {
         font-size: 1.6rem;
         font-weight: $lightWeight;
         color: $primaryColor;
     }
-} // end header
+}
+
+// end header
 
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
 
-section{
+@for $i from 1 through 12 {
+    $w: calc($i /12) * 100%;
+    .small-#{$i} {flex-basis: $w;}
+}
+
+section {
     height: 100vh;
+
+    h6 {
+        margin: 20px;
+    }
+
     img {
         width: 100%;
         height: auto;
@@ -47,14 +66,11 @@ section{
 }
 
 #navWrapper {
-    background-color: #333;
+    background-color: maroon;
     position: sticky;
     top: 0;
 }
 
-#six {
-    height: 125vh;
-}
 
 nav {
     ul {
@@ -62,45 +78,55 @@ nav {
         padding: 0;
         margin: 0;
         display: flex;
-        img{
+
+        img {
+            filter: invert(1);
             width: auto;
             height: 25px;
         }
+
         span {
             display: block;
             text-align: center;
             display: none;
         }
 
-        li{
+        li {
             flex: 1;
+            text-align: center;
         }
+
         li.active {
-            background-color: aqua;
+            background: linear-gradient(to right, rgba(45, 0, 0, 1), rgba(45, 0, 0, 0));
+            justify-items: center;
         }
+
         a {
             display: block;
-            text-align: center;
             padding: 0.75rem;
-            color: black;
+            color: white;
             text-decoration: none;
+            font-size: 1.5rem;
 
             &:hover {
-                background-color: #333;
+                background-color: mix(black, maroon, 20%);
             }
 
         }
     }
 }
 
+
 form {
     padding: 0.5rem;
-    fieldset { 
+
+    fieldset {
         border: 1px solid $primaryColor;
         border-radius: 3px;
         margin-bottom: 1rem;
         margin-left: 1rem;
     }
+
     label {
         display: flex;
         flex-direction: column;
@@ -108,14 +134,17 @@ form {
         width: 325px;
         padding: 20px 10px 10px 25px;
     }
+
     legend {
         font-size: 26px;
         color: $primaryColor;
     }
+
     input {
         border: 1px solid $primaryColor;
         border-radius: 3px;
     }
+
     #button {
         color: $greyColor;
         background-color: $primaryColor;
@@ -124,16 +153,14 @@ form {
         padding: 15px;
         height: 55px;
     }
+
     textarea {
         height: 205px;
     }
+    
 }
 
-#six {
-    height: 95vh;
-}
-
-#soc img{
+#soc img {
     width: auto;
     height: 45px;
     margin: $gutter;
@@ -145,25 +172,94 @@ form {
 
 #two {
     background-color: lightgreen;
+    height: 200vh;
+
+    img {
+        padding: 8px;
+        width: 100%;
+        border-radius: 10px;
+    }
+    h2 {
+        text-align: center;
+    }
+
 }
 
 #three {
     background-color: lightgrey;
+    height: 200vh;
+    img {
+        padding: 8px;
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+
+    }
+    h2 {
+        text-align: center;
+    }
 }
 
 #four {
     background-color: lightyellow;
+    height: 200vh;
 }
 
 #five {
     background-color: lightpink;
+    height: 250vh;
 }
 
 #six {
     background-color: lightsteelblue;
+    height: 100vh;
+}
+
+a {
+    display: inline-block;
+    max-width: fit-content;
+}
+
+nav,
+.scroll-container {
+    display: block;
+}
+
+.scroll-container {
+    scroll-behavior: smooth;
+}
+
+.scroll-page {
+    align-items: center;
+    justify-content: center;
 }
 
 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0;
+    padding: 0 8px;
+}
+
+.column {
+    background-color: aquamarine;
+    padding: 0 8px;
+    margin: 8px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+#con {
+    margin: 5px;
+    a {
+        color: black;
+        text-decoration: none;
+        margin: 5px;
+    }
+}
 
 
 
@@ -179,19 +275,24 @@ main {
         color: $secondaryColor;
         font-weight: $lightWeight
     }
+
     p {
         padding: .5rem $gutter;
         color: #333;
         line-height: $leading;
     }
-}// end main
+}
+
+// end main
 
 
 
 /* --------------------------- FOOTER --------------------------- */
 #footerWrapper {
-    background-color: $primaryColor
-} // end footer wrapper
+    background-color: maroon;
+}
+
+// end footer wrapper
 
 footer {
     font-size: .85rem;
@@ -199,5 +300,10 @@ footer {
     color: $greyColor;
     text-align: center;
     line-height: $leading;
-    a {color: $greyColor;}
-}// end footer
+
+    a {
+        color: $greyColor;
+    }
+}
+
+// end footer

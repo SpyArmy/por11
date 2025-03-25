@@ -1,14 +1,39 @@
 /* NAVIGATION STUFF GOES HERE  */
 
+#one {
+    height: 100vh;
+}
+
+#two {
+    height: 110vh;
+}
+
+#three {
+    height: 130vh;
+}
+
+#four {
+    height: 150vh;
+}
+
+#five {
+    height: 220vh;
+}
+
+#six {
+    height: 100vh;
+
+}
+
+
 nav {
     ul {
         a {
             img {
-                display: none;
+                filter: invert(1);
             }
-
             span {
-                display: block;
+                display: none;
             }
         }
     }
